@@ -54,8 +54,6 @@ public class EzEntity extends KeyValueEntity {
      * @return
      */
     public Map<String, Object> ezToMap() {
-        System.out.print("FUCK=>");
-        System.out.println(this.properties);
         Map<String, Object> tmp = new HashMap<>(this.properties);
         for (String v : tmp.keySet()) {
             Object target = tmp.get(v);
@@ -63,19 +61,19 @@ public class EzEntity extends KeyValueEntity {
                 EzEntity tmp2 = (EzEntity) tmp.get(v);
                 tmp.put(v, tmp2.ezToMap());
             } else if (target instanceof List) {
-                System.out.println(v+"===>"+target);
-                List<Map<String, Object>> addList = new ArrayList<>();
+                List<Object> addList = new ArrayList<>();
                 List<Object> tmpArray = (List<Object>) tmp.get(v);
                 for (Object x : tmpArray) {
                     if (x instanceof EzEntity) {
                         EzEntity tmp3 = (EzEntity) x;
                         addList.add(tmp3.ezToMap());
+                    }else{
+                        addList.add(x);
                     }
                 }
                 tmp.put(v, addList);
             }
         }
-        System.out.println(this.properties);
         return tmp;
     }
 }

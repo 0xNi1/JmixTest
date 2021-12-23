@@ -4,6 +4,7 @@
     <menu id="application" caption="msg://com.company.jmixtest/menu.application" insertBefore="administration">
         <item screen="User.browse" caption="msg://com.company.jmixtest.screen.user/UserBrowse.caption"/>
         <item screen="themeSettingsScreen" caption="msg://io.jmix.ui.app.themesettings/themeSettings.caption"/>
+        <item screen="Test1.browse" caption="msg://com.company.jmixtest.entity.testone/testOneBrowse.menu"/>
     </menu>
 
 </menu-config>
